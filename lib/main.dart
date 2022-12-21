@@ -2,7 +2,13 @@ import 'package:firebaseauth/roots/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() => runApp(const MyApp());
+import 'd.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DependencyInjection.init();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
