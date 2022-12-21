@@ -49,7 +49,8 @@ class LoginScreen extends GetView<LoginController> {
               TextButton(
                   onPressed: () {
                     if (controller.checkEmtpyFields()){
-                      Get.toNamed(Routes.HOME);
+                      controller.checkEmtpyFields();
+                      
                     }
                     
                   },
@@ -73,7 +74,7 @@ class LoginScreen extends GetView<LoginController> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   InkWell(
-                    onTap: () => controller.checkEmtpyFields(),
+                    onTap: () => Get.toNamed(Routes.REGISTER),
                     child: const Text(
                       "Click here",
                       style: TextStyle(color: Colors.white, fontSize: 16),
