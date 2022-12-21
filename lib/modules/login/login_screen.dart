@@ -8,7 +8,7 @@ import '../../roots/app_pages.dart';
 import 'login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,9 @@ class LoginScreen extends GetView<LoginController> {
                 height: 100,
               ),
               const Text("LOGIN"),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                controller: controller.usernameController,
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     filled: true,
@@ -35,8 +36,9 @@ class LoginScreen extends GetView<LoginController> {
               const SizedBox(
                 height: 20,
               ),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                controller: controller.passwordController,
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     filled: true,
@@ -45,7 +47,12 @@ class LoginScreen extends GetView<LoginController> {
               ),
               const SizedBox(height: 20),
               TextButton(
-                  onPressed: () => Get.toNamed(Routes.HOME),
+                  onPressed: () {
+                    if (controller.checkEmtpyFields()){
+                      Get.toNamed(Routes.HOME);
+                    }
+                    
+                  },
                   child: Container(
                     height: 50,
                     width: 150,
@@ -66,7 +73,7 @@ class LoginScreen extends GetView<LoginController> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   InkWell(
-                    onTap: () => Get.toNamed(Routes.REGISTER),
+                    onTap: () => controller.checkEmtpyFields(),
                     child: const Text(
                       "Click here",
                       style: TextStyle(color: Colors.white, fontSize: 16),

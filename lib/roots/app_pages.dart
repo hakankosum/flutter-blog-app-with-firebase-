@@ -15,7 +15,7 @@ part "app_roots.dart";
 abstract class AppPages {
 
   static final pages = [
-    GetPage(name: Routes.LOGIN, page:()=> const LoginScreen(),binding: LoginBinding()),
+    GetPage(name: Routes.LOGIN, page:()=>  LoginScreen(),binding: LoginBinding()),
     GetPage(name: Routes.REGISTER, page:()=> const RegisterScreen(),binding: RegisterBinding()),
     GetPage(name: Routes.HOME, page:()=> const HomeScreen(),binding: HomeBinding())
   ];
