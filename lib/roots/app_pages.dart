@@ -16,7 +16,7 @@ abstract class AppPages {
 
   static final pages = [
     GetPage(name: Routes.LOGIN, page:()=>  LoginScreen(),binding: LoginBinding()),
-    GetPage(name: Routes.REGISTER, page:()=> const RegisterScreen(),binding: RegisterBinding()),
-    GetPage(name: Routes.HOME, page:()=> const HomeScreen(),binding: HomeBinding())
+    GetPage(name: Routes.REGISTER, page:()=>  RegisterScreen(),binding: RegisterBinding()),
+    GetPage(name: Routes.HOME, page:()=>  HomeScreen(),binding: HomeBinding())
   ];
 }

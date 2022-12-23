@@ -13,7 +13,7 @@ class LoginScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+     
       body: Container(
         margin: const EdgeInsets.all(20),
         child: Center(
@@ -48,10 +48,7 @@ class LoginScreen extends GetView<LoginController> {
               const SizedBox(height: 20),
               TextButton(
                   onPressed: () {
-                    if (controller.checkEmtpyFields()){
-                      controller.checkEmtpyFields();
-                      
-                    }
+                    controller.loginUser();
                     
                   },
                   child: Container(

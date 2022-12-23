@@ -2,7 +2,7 @@ import 'package:firebaseauth/roots/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'd.dart';
+import 'di.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData.dark(),
       title: 'Material App',
       getPages: AppPages.pages,
       initialRoute:Routes.LOGIN ,
