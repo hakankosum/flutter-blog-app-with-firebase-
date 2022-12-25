@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebaseauth/firebase_options.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ class FirebaseService extends GetxService {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    
     return this;
   }
 }

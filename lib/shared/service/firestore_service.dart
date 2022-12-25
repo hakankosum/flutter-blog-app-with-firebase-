@@ -1,20 +1,20 @@
-
+import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-class FirestoreService extends GetxService{
+class FirestoreService extends GetxService {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
-  Future<void> addNote(String note) async {
-    var ref = firebaseFirestore.collection("notes");
+  Future<void> addPost(String title, String content) async {
+    var ref = firebaseFirestore.collection("users");
 
-    var documentRef = await ref.add({
 
-      "note":note
-    });
+    ref.doc(FirebaseAuth.instance.currentUser!.uid).collection("data").add(
+      {"title": title, "content": content}
+    );
     
-
 
   }
 }

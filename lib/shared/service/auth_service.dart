@@ -30,6 +30,7 @@ class AuthService extends GetxService {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) => Get.offNamed(Routes.HOME));
+        
     } catch (e) {
       print(e);
     }

@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebaseauth/modules/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
+import '../../roots/app_pages.dart';
 import '../../shared/service/firestore_service.dart';
 
 class HomeScreen extends GetView<HomeController> {
@@ -13,20 +15,70 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(
+        margin: const EdgeInsets.only(left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            Text("Home Screen"),
+            SizedBox(
+              height: 450,
 
-      body: Center(child: Column(
-        children: [
-           const SizedBox(height: 50,),
-          const Text("Home Screen"),
-          IconButton(onPressed: () {
-            FirestoreService().addNote("asd");
-          }, icon: Container(
-            height: 50,
-            width: 150,
-            decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.circular(10)),
-            child: const Center(child: Text("Add note"))))
-        ],
-      )),
+              
+
+              child:controller.documents!=null? Obx(() => ListView.builder(
+                    itemCount: controller.documents.docs.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: EdgeInsets.all(10),
+                        margin: const EdgeInsets.only(bottom: 10),
+                        height: 100,
+                        decoration: BoxDecoration(
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(controller.returnData[index]["title"]),
+                            const Divider(),
+                          
+                          ],
+                        ),
+                      );
+                    },
+                  )):Text("Loading..."),
+            ),
+            Row(
+              children: [
+                Container(
+                  height: 50,
+                  width: 90,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.red),
+                  child: IconButton(
+                      onPressed: () {
+                        Get.toNamed(Routes.CREATE);
+                      },
+                      icon: Center(
+                          child: Row(
+                        children: const [
+                          Icon(Icons.add),
+                          Text("Create"),
+                        ],
+                      ))),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
