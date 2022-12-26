@@ -7,6 +7,7 @@ class CreatePostController extends GetxController{
   TextEditingController contentTextController = TextEditingController();
   HomeController homeController =HomeController();
 
+  
 
   
 

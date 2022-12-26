@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  var returnData = [].obs;
+
+  bool hasData=false;
+
   var ref;
   var documents;
 
@@ -15,20 +17,19 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  getPosts() async {
+  Stream<QuerySnapshot> getPosts()  {
     ref = firebaseFirestore.collection("users");
-     documents = await ref
+    
+     documents = ref
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("data")
         .get();
-    print(documents.docs.length);
 
-    for (var i = 0; i < documents.docs.length; i++) {
-      
-        returnData.add(documents.docs[i].data());
-        print(returnData[i]["title"]);
-
-    }
+  
+    return ref.doc(FirebaseAuth.instance.currentUser!.uid).collection("data").snapshots();
 
   }
+  
+  
+
 }

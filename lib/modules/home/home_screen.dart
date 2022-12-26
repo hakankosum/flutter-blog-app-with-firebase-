@@ -23,34 +23,61 @@ class HomeScreen extends GetView<HomeController> {
             SizedBox(
               height: 50,
             ),
-            Text("Home Screen"),
+            const Center(child: Text("My Posts",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
             SizedBox(
-              height: 450,
+              height: 620,
 
-              
-
-              child:controller.documents!=null? Obx(() => ListView.builder(
-                    itemCount: controller.documents.docs.length,
+              child: StreamBuilder(
+                stream: controller.getPosts(),
+                builder: (context, snapshot) {
+                return SizedBox(
+                  height: 200,
+                  child: (snapshot.hasData)? ListView.builder(
+                    itemCount: snapshot.data!.size,
                     itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.all(10),
-                        margin: const EdgeInsets.only(bottom: 10),
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(controller.returnData[index]["title"]),
-                            const Divider(),
-                          
-                          ],
-                        ),
-                      );
-                    },
-                  )):Text("Loading..."),
+                    return Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(bottom: 10),
+                      decoration: BoxDecoration(border: Border.all(),borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(snapshot.data!.docs[index]["title"],style: const TextStyle(fontSize: 16),),
+                        const Divider(),
+                        SizedBox(
+                          height: 100,
+                          child: Text(snapshot.data!.docs[index]["content"])),
+                        const SizedBox(height: 10,)
+                      ],
+                                      ),
+                    );
+                  },):Text("Add Post"),
+                );
+                
+              },),
+              // child: Obx(() => ListView.builder(
+              //       itemCount: controller.returnData.length,
+              //       itemBuilder: (context, index) {
+              //         return Container(
+              //           padding: const EdgeInsets.all(10),
+              //           margin: const EdgeInsets.only(bottom: 10),
+              //           height: 100,
+              //           decoration: BoxDecoration(
+              //               border: Border.all(),
+              //               borderRadius: BorderRadius.circular(10)),
+              //           child: Column(
+              //             crossAxisAlignment: CrossAxisAlignment.start,
+              //             children: [
+              //               Text(controller.returnData[index]["title"]),
+              //               const Divider(),
+              //               Text(controller.returnData[index]["content"]),
+              //             ],
+              //           ),
+              //         );
+              //       },
+              //     )),
             ),
+            Spacer(),
             Row(
               children: [
                 Container(
@@ -76,6 +103,7 @@ class HomeScreen extends GetView<HomeController> {
                 ),
               ],
             ),
+            const SizedBox(height: 50)
           ],
         ),
       ),

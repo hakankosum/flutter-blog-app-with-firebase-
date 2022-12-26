@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../../modules/home/home_controller.dart';
+
 class FirestoreService extends GetxService {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
