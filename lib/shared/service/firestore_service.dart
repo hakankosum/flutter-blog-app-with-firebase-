@@ -10,14 +10,17 @@ class FirestoreService extends GetxService {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   Future<void> addPost(String title, String content) async {
-    var ref = firebaseFirestore.collection("users");
-    
+    if (title != "" && content != "") {
+      var ref = firebaseFirestore.collection("users");
 
-
-    ref.doc(FirebaseAuth.instance.currentUser!.uid).collection("data").doc(
-      DateTime.now().toString()
-    ).set({"title":title,"content":content});
-    
-
+      ref
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection("data")
+          .doc(DateTime.now().toString())
+          .set({"title": title, "content": content});
+    }
+    else{
+      Get.snackbar("error", "Empty fields");
+    }
   }
 }
