@@ -27,4 +27,13 @@ class HomeController extends GetxController {
     
     return ref;
   }
+
+  deletePost(String id){
+    ref = firebaseFirestore
+        .collection("users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("data").doc(id).delete();
+
+
+  }
 }

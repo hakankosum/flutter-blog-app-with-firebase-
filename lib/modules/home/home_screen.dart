@@ -15,6 +15,7 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         margin: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
@@ -42,12 +43,24 @@ class HomeScreen extends GetView<HomeController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(snapshot.data!.docs[snapshot.data!.size-1-index]["title"],style: const TextStyle(fontSize: 16),),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(snapshot.data!.docs[snapshot.data!.size-1-index]["title"],style: const TextStyle(fontSize: 16),
+                            ),
+                            IconButton(onPressed: () {
+                              controller.deletePost(snapshot.data!.docs[snapshot.data!.size-1-index].id);
+                            }, icon: Icon(Icons.delete))
+
+
+                          ],
+                        ),
                         const Divider(),
                         SizedBox(
                           height: 100,
                           child: Text(snapshot.data!.docs[snapshot.data!.size-1-index]["content"])),
-                        const SizedBox(height: 10,)
+                        
+                        const SizedBox(height: 10)
                       ],
                                       ),
                     );
