@@ -10,9 +10,9 @@ class LoginController extends GetxController {
 
   AuthService authService = AuthService();
   
-  loginUser() {
+  loginUser() async {
     print("login başladı");
-    authService.loginUser(usernameController.text, passwordController.text);
+    await authService.loginUser(usernameController.text, passwordController.text);
     print("login bitti");
   }
 }

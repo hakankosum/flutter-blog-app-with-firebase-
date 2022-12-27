@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../roots/app_pages.dart';
 import '../../shared/service/firestore_service.dart';
 
 class CreatePostScreen extends GetView<CreatePostController> {
@@ -39,7 +40,7 @@ class CreatePostScreen extends GetView<CreatePostController> {
               width: 100,
               decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.circular(10)),
               child: IconButton(onPressed:() {
-                FirestoreService().addPost(controller.titleTextController.text,controller.contentTextController.text);
+                FirestoreService().addPost(controller.titleTextController.text,controller.contentTextController.text).then((value) => Get.toNamed(Routes.HOME));
                 
               }, icon: Row(children: [Text("Add Post"),Icon(Icons.add)])))
           ],

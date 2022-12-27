@@ -11,11 +11,12 @@ class FirestoreService extends GetxService {
 
   Future<void> addPost(String title, String content) async {
     var ref = firebaseFirestore.collection("users");
+    
 
 
-    ref.doc(FirebaseAuth.instance.currentUser!.uid).collection("data").add(
-      {"title": title, "content": content}
-    );
+    ref.doc(FirebaseAuth.instance.currentUser!.uid).collection("data").doc(
+      DateTime.now().toString()
+    ).set({"title":title,"content":content});
     
 
   }

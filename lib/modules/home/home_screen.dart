@@ -42,11 +42,11 @@ class HomeScreen extends GetView<HomeController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(snapshot.data!.docs[index]["title"],style: const TextStyle(fontSize: 16),),
+                        Text(snapshot.data!.docs[snapshot.data!.size-1-index]["title"],style: const TextStyle(fontSize: 16),),
                         const Divider(),
                         SizedBox(
                           height: 100,
-                          child: Text(snapshot.data!.docs[index]["content"])),
+                          child: Text(snapshot.data!.docs[snapshot.data!.size-1-index]["content"])),
                         const SizedBox(height: 10,)
                       ],
                                       ),
