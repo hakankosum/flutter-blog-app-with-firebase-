@@ -1,16 +1,21 @@
-# firebaseauth
+# Flutter Blog Saving App with Firebase auth and storage
 
-A new Flutter project.
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project contains basic usage of GetxService, FirebaseAuth, Firestrorage.
+Before cloning, you  need to install Firebase CLI via https://firebase.google.com/docs/cli.
+After cloning it, you need to get all packages with "flutter pub get" in terminal.
+Before starting project, you need to login&costumize firebase!
 
-A few resources to get you started if this is your first Flutter project:
+###
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+You can save posts to firebase with user's uid and everyposts will be saved with its timestamp.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+![aa](https://user-images.githubusercontent.com/96109097/209925957-5f711619-c1d6-48e3-93bb-379fd12dc3ad.png)
+
+
+
+![ezgif-2-4075ae2d04](https://user-images.githubusercontent.com/96109097/209926568-e5abd5cb-56f7-4813-ad4a-cae4a68b06fd.gif)
