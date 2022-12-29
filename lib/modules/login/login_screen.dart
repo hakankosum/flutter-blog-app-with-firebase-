@@ -13,6 +13,7 @@ class LoginScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
      
       body: Container(
         margin: const EdgeInsets.all(20),
@@ -38,6 +39,7 @@ class LoginScreen extends GetView<LoginController> {
               ),
               TextField(
                 controller: controller.passwordController,
+                obscureText: true,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),

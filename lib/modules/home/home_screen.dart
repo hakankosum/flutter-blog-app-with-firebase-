@@ -22,11 +22,11 @@ class HomeScreen extends GetView<HomeController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 50,
+              height: 40,
             ),
             const Center(child: Text("My Posts",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
             SizedBox(
-              height: 620,
+              height: 410,
 
               child: StreamBuilder(
                 stream: controller.getPosts(),
@@ -111,12 +111,10 @@ class HomeScreen extends GetView<HomeController> {
                         ],
                       ))),
                 ),
-                SizedBox(
-                  width: 30,
-                ),
+                
               ],
             ),
-            const SizedBox(height: 50)
+            const SizedBox(height: 10)
           ],
         ),
       ),
