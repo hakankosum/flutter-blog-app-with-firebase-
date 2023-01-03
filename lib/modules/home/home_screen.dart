@@ -22,11 +22,11 @@ class HomeScreen extends GetView<HomeController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 50,
+              height: 40,
             ),
             const Center(child: Text("My Posts",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
             SizedBox(
-              height: 620,
+              height: 410,
 
               child: StreamBuilder(
                 stream: controller.getPosts(),
@@ -68,27 +68,7 @@ class HomeScreen extends GetView<HomeController> {
                 );
                 
               },),
-              // child: Obx(() => ListView.builder(
-              //       itemCount: controller.returnData.length,
-              //       itemBuilder: (context, index) {
-              //         return Container(
-              //           padding: const EdgeInsets.all(10),
-              //           margin: const EdgeInsets.only(bottom: 10),
-              //           height: 100,
-              //           decoration: BoxDecoration(
-              //               border: Border.all(),
-              //               borderRadius: BorderRadius.circular(10)),
-              //           child: Column(
-              //             crossAxisAlignment: CrossAxisAlignment.start,
-              //             children: [
-              //               Text(controller.returnData[index]["title"]),
-              //               const Divider(),
-              //               Text(controller.returnData[index]["content"]),
-              //             ],
-              //           ),
-              //         );
-              //       },
-              //     )),
+
             ),
             Spacer(),
             Row(
@@ -111,6 +91,7 @@ class HomeScreen extends GetView<HomeController> {
                         ],
                       ))),
                 ),
+
                 Container(
                   height: 50,
                   width: 90,
@@ -132,9 +113,10 @@ class HomeScreen extends GetView<HomeController> {
                 SizedBox(
                   width: 30,
                 ),
+
               ],
             ),
-            const SizedBox(height: 50)
+            const SizedBox(height: 10)
           ],
         ),
       ),
