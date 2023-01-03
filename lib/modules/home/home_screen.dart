@@ -111,6 +111,24 @@ class HomeScreen extends GetView<HomeController> {
                         ],
                       ))),
                 ),
+                Container(
+                  height: 50,
+                  width: 90,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.red),
+                  child: IconButton(
+                      onPressed: () {
+                        controller.firebaseAnalyticsService.logEvent();
+                      },
+                      icon: Center(
+                          child: Row(
+                        children: const [
+                          Icon(Icons.add),
+                          Text("asdasd"),
+                        ],
+                      ))),
+                ),
                 SizedBox(
                   width: 30,
                 ),

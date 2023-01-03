@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseauth/shared/service/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+  FirebaseAnalyticsService firebaseAnalyticsService =FirebaseAnalyticsService();
 
   bool hasData = false;
 
