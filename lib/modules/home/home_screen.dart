@@ -24,7 +24,7 @@ class HomeScreen extends GetView<HomeController> {
             SizedBox(
               height: 40,
             ),
-            const Center(child: Text("My Posts",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+            const Center(child: Text("My Posts",style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),)),
             SizedBox(
               height: 410,
 
